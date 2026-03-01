@@ -1,75 +1,75 @@
 # CLAUDE.md
 
-This file provides guidance for AI assistants (Claude Code and similar tools) working in this repository.
+このファイルは、このリポジトリで作業するAIアシスタント（Claude Codeおよび類似ツール）向けのガイドラインです。
 
-## Repository Overview
+## リポジトリ概要
 
-A minimal static HTML project. The codebase currently consists of a single entry-point file with no build tooling, dependencies, or framework.
+最小構成の静的HTMLプロジェクトです。現時点のコードベースはエントリーポイントとなるファイルが1つのみで、ビルドツール・依存関係・フレームワークは一切ありません。
 
-## Repository Structure
+## リポジトリ構成
 
 ```
 /
-├── index.html      # Single-page HTML entry point
-└── CLAUDE.md       # This file
+├── index.html      # シングルページHTMLエントリーポイント
+└── CLAUDE.md       # このファイル
 ```
 
-## Codebase Details
+## コードベースの詳細
 
 ### index.html
 
-A bare-bones HTML5 document:
+最小限のHTML5ドキュメント:
 
 - DOCTYPE: `HTML5`
-- Language: `en-US`
-- Charset: `UTF-8`
-- No external stylesheets, scripts, or assets referenced
-- No JavaScript
-- Body contains a single `<p>test</p> ` placeholder
+- 言語: `en-US`
+- 文字コード: `UTF-8`
+- 外部スタイルシート・スクリプト・アセットの参照なし
+- JavaScriptなし
+- ボディには `<p>test</p>` のプレースホルダーのみ
 
-## Development Workflow
+## 開発ワークフロー
 
-### Branching
+### ブランチ運用
 
-- The default branch is `master`.
-- Feature/AI branches follow the pattern `claude/<description>-<SESSION_ID>` (e.g., `claude/add-claude-documentation-C4M7P`).
-- Always develop on the designated feature branch; never push directly to `master` without explicit permission.
+- デフォルトブランチは `master`。
+- 機能・AIブランチは `claude/<説明>-<セッションID>` の形式に従う（例: `claude/add-claude-documentation-C4M7P`）。
+- 常に指定されたフィーチャーブランチで開発を行い、明示的な許可なく `master` へ直接プッシュしない。
 
-### Making Changes
+### 変更手順
 
-1. Confirm you are on the correct feature branch before editing any file.
-2. Edit files using targeted, minimal changes — avoid unnecessary reformatting or scope creep.
-3. Commit with a clear, descriptive message summarising the *why*, not just the *what*.
-4. Push with `git push -u origin <branch-name>`.
+1. ファイルを編集する前に、正しいフィーチャーブランチにいることを確認する。
+2. 変更は目的に絞った最小限の修正にとどめ、不要なフォーマット変更やスコープの拡大を避ける。
+3. *何を*変えたかではなく*なぜ*変えたかが伝わる、明確で簡潔なコミットメッセージを書く。
+4. `git push -u origin <ブランチ名>` でプッシュする。
 
-### Git Conventions
+### Gitの規約
 
-- Commit messages: imperative mood, concise (e.g., `Add navigation bar to index.html`).
-- Do not force-push or rebase shared branches without explicit user approval.
-- Do not skip hooks (`--no-verify`) unless explicitly instructed.
+- コミットメッセージ: 命令形・簡潔に（例: `Add navigation bar to index.html`）。
+- 明示的なユーザー承認なしに、共有ブランチへのフォースプッシュやリベースを行わない。
+- 明示的に指示されない限り、フック（`--no-verify`）をスキップしない。
 
-## Code Conventions
+## コード規約
 
-| Convention | Rule |
+| 規約 | ルール |
 |---|---|
-| HTML standard | HTML5 (`<!DOCTYPE HTML>`) |
-| Language attribute | Always set `lang` on `<html>` |
-| Charset | Always declare `charset="UTF-8"` in `<head>` |
-| Indentation | Tabs |
-| External resources | Add only when necessary; prefer CDN-free, self-contained assets for a static project |
+| HTML標準 | HTML5（`<!DOCTYPE HTML>`） |
+| 言語属性 | `<html>` に必ず `lang` を設定する |
+| 文字コード | `<head>` 内に必ず `charset="UTF-8"` を宣言する |
+| インデント | タブ |
+| 外部リソース | 必要な場合のみ追加する。静的プロジェクトではCDN不使用・自己完結型のアセットを優先する |
 
-## No Build / Test Tooling
+## ビルド・テストツールなし
 
-This project has **no** package manager, build system, linter, or test suite configured. Until these are introduced:
+このプロジェクトにはパッケージマネージャー・ビルドシステム・リンター・テストスイートが**一切**設定されていません。導入されるまでは:
 
-- Do not run `npm`, `yarn`, `pnpm`, or similar commands.
-- Do not create `package.json`, `webpack.config.js`, or similar config files unless explicitly asked.
-- Validate HTML manually or with the [W3C Validator](https://validator.w3.org/) if needed.
+- `npm`・`yarn`・`pnpm` などのコマンドを実行しない。
+- 明示的に依頼されない限り、`package.json`・`webpack.config.js` などの設定ファイルを作成しない。
+- HTMLの検証が必要な場合は手動または [W3C Validator](https://validator.w3.org/) を使用する。
 
-## Notes for AI Assistants
+## AIアシスタントへの注意事項
 
-- Keep changes minimal and focused on what is explicitly requested.
-- Do not add frameworks, libraries, or tooling without user approval.
-- Do not create new files unless they are strictly necessary.
-- If asked to add styling or scripting, prefer inline `<style>` / `<script>` blocks until a more structured approach is agreed upon.
-- This is a test/sandbox repository — treat it as a learning or prototyping environment.
+- 変更は最小限にとどめ、明示的に依頼された内容にのみ集中する。
+- ユーザーの承認なしにフレームワーク・ライブラリ・ツールを追加しない。
+- 厳密に必要な場合を除き、新規ファイルを作成しない。
+- スタイルやスクリプトの追加を求められた場合、より構造化されたアプローチが合意されるまではインラインの `<style>` / `<script>` ブロックを優先する。
+- これはテスト・サンドボックスリポジトリです。学習・プロトタイピング用の環境として扱ってください。
